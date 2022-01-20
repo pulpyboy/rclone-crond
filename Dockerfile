@@ -6,10 +6,8 @@ ENV LABEL_MAINTAINER="niveksan" \
     LABEL_DESCRIPTION="Docker rclone/rclone image using crond as default entrypoint." \
     LABEL_LICENSE="GPL-3.0"
 
-# install sqlite, curl, bash (for script)
+# install bash (for script)
 RUN apk add --no-cache \
-  sqlite \
-  curl \
   bash
 
 # copy backup script to crond daily folder
@@ -25,6 +23,5 @@ RUN chmod +x /entrypoint.sh && \
 RUN echo "0 */12 * * * /backup.sh" > /etc/crontabs/root
 
 ENTRYPOINT ["/entrypoint.sh"]
-#CMD ["/bin/sh","/entrypoint.sh"]
 
 # docker build --network=host --no-cache -t rclone-crond:arm .
