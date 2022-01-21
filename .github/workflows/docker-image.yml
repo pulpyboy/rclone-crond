@@ -5,6 +5,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  schedule:
+    - cron: "30 11 21 * *"
 
 jobs:
 
@@ -15,18 +17,34 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+   - name: Docker Image Update Checker
+     id: baseupdatecheck
+     uses: lucacome/docker-image-update-checker@v1.1.0
+     with:
+       base-image: rclone/rclone
+       image: rclone-crond
+
+      # only execute subsequent steps if an update is actually NEEDED.
+      # unfortunately we need to add an if-condition to all steps now
+      # because a clean exit can't be triggered within a job it seems
+      # (a cancellation is NOT the same and triggers a failure email)
+      # see also https://github.com/actions/runner/issues/662
+
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
+      if: steps.baseupdatecheck.outputs.needs-updating == 'true'
 
     - name: Set up Docker Buildx
       id: buildx
       uses: docker/setup-buildx-action@v1
+      if: steps.baseupdatecheck.outputs.needs-updating == 'true'
   
     - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      if: steps.baseupdatecheck.outputs.needs-updating == 'true'
 
     - name: Build and push
       uses: docker/build-push-action@v2
@@ -34,3 +52,4 @@ jobs:
         platforms: linux/arm/v7
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/rclone-crond:arm
+      if: steps.baseupdatecheck.outputs.needs-updating == 'true'
