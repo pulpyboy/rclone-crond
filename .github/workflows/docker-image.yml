@@ -17,12 +17,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-   - name: Docker Image Update Checker
-     id: baseupdatecheck
-     uses: lucacome/docker-image-update-checker@v1.1.0
-     with:
-       base-image: rclone/rclone
-       image: rclone-crond
+    - name: Docker Image Update Checker
+      id: baseupdatecheck
+      uses: lucacome/docker-image-update-checker@v1.1.0
+      with:
+        base-image: rclone/rclone
+        image: rclone-crond
 
       # only execute subsequent steps if an update is actually NEEDED.
       # unfortunately we need to add an if-condition to all steps now
