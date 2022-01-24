@@ -1,10 +1,10 @@
 FROM rclone/rclone:latest
 
-ENV LABEL_MAINTAINER="niveksan" \
-    LABEL_VENDOR="mimalike.de" \
-    LABEL_IMAGE_NAME="niveksan/rclone-cron" \
-    LABEL_DESCRIPTION="Docker rclone/rclone image using crond as default entrypoint." \
-    LABEL_LICENSE="GPL-3.0"
+# ENV LABEL_MAINTAINER="niveksan" \
+#     LABEL_VENDOR="mimalike.de" \
+#     LABEL_IMAGE_NAME="niveksan/rclone-cron" \
+#     LABEL_DESCRIPTION="Docker rclone/rclone image using crond as default entrypoint." \
+#     LABEL_LICENSE="GPL-3.0"
 
 # install bash (for script)
 RUN apk add --no-cache \
