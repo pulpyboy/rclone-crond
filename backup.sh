@@ -6,3 +6,6 @@ rclone sync Local:/data/bitwarden_rs-local-backup/backups Nextcloud:/Bitwarden
 
 #Home Assistant
 rclone sync Local:/data/homeassistant/backups Nextcloud:/Home_Assistant
+
+#Nextcloud
+rclone sync Local:/data/nextcloud/backups Nextcloud:/Nextcloud
