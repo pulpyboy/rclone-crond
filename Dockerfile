@@ -8,7 +8,8 @@ FROM rclone/rclone:1.61.1
 
 # install bash (for script)
 RUN apk add --no-cache \
-  bash
+  bash \
+  exiftool
 
 # copy backup script to crond daily folder
 COPY backup.sh /
