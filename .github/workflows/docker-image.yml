@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3.2.0
+    - uses: actions/checkout@v3.4.0
 
     # - name: Docker Image Update Checker
     #   id: baseupdatecheck
@@ -37,7 +37,7 @@ jobs:
 
     - name: Set up Docker Buildx
       id: buildx
-      uses: docker/setup-buildx-action@v2.2.1
+      uses: docker/setup-buildx-action@v2.5.0
     #  if: steps.baseupdatecheck.outputs.needs-updating == 'true'
   
     - name: Login to DockerHub
@@ -48,7 +48,7 @@ jobs:
     #  if: steps.baseupdatecheck.outputs.needs-updating == 'true'
 
     - name: Build and push
-      uses: docker/build-push-action@v3.2.0
+      uses: docker/build-push-action@v4.0.0
       with:
         platforms: linux/arm/v7
         push: true
