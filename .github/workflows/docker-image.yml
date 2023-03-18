@@ -52,5 +52,12 @@ jobs:
       with:
         platforms: linux/arm/v7
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/rclone-crond:arm
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/rclone-crond:armv7
     #  if: steps.baseupdatecheck.outputs.needs-updating == 'true'
+
+    - name: Build and push
+      uses: docker/build-push-action@v4.0.0
+      with:
+        platforms: linux/arm64/v8
+        push: true
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/rclone-crond:armv8
