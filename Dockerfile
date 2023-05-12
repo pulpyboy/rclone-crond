@@ -12,13 +12,15 @@ RUN apk add --no-cache \
 
 # copy backup script to crond daily folder
 COPY backup.sh /
+COPY backup-re.sh /
 
 # copy entrypoint to usr bin
 COPY entrypoint.sh /
 
 # give execution permission to scripts
 RUN chmod +x /entrypoint.sh && \
-    chmod +x /backup.sh
+    chmod +x /backup.sh \
+    chmod +x /backup-re.sh
 
 RUN echo "0 */12 * * * /backup.sh" > /etc/crontabs/root
 
