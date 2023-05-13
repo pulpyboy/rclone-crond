@@ -11,7 +11,7 @@ RUN apk add --no-cache \
   bash
 
 # copy backup script to crond daily folder
-COPY backup.sh
+COPY backup.sh /
 
 # copy entrypoint to usr bin
 COPY entrypoint.sh /
