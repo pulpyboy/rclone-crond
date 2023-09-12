@@ -41,7 +41,7 @@ jobs:
     #  if: steps.baseupdatecheck.outputs.needs-updating == 'true'
   
     - name: Login to DockerHub
-      uses: docker/login-action@v2.2.0
+      uses: docker/login-action@v3.0.0
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
