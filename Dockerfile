@@ -1,4 +1,4 @@
-FROM rclone/rclone:1.64.0
+FROM rclone/rclone:1.64.2
 
 # ENV LABEL_MAINTAINER="niveksan" \
 #     LABEL_VENDOR="mimalike.de" \
