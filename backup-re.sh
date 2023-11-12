@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # set the path to the folder you want to check
-folder_path="Nextcloud:/Bitwarden"
+folder_path="/data/bitwarden_rs-local-backup/backups"
 
 # get the most recently modified file in the folder
-most_recent_file=$(rclone ls -t "$folder_path" | head -1)
+# rclone lsl Nextcloud:/Bitwarden --max-age 12h
+most_recent_file=$(ls -t "$folder_path" | head -1)
 
 # print the name of the most recently modified file
 echo "The most recent file in $folder_path is: $most_recent_file"
