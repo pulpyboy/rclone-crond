@@ -50,7 +50,7 @@ jobs:
     #  if: steps.baseupdatecheck.outputs.needs-updating == 'true'
 
     - name: Build and push
-      uses: docker/build-push-action@v6.9.0
+      uses: docker/build-push-action@v6.10.0
       with:
         platforms: linux/arm/v7
         push: true
@@ -58,7 +58,7 @@ jobs:
     #  if: steps.baseupdatecheck.outputs.needs-updating == 'true'
 
     - name: Build and push
-      uses: docker/build-push-action@v6.9.0
+      uses: docker/build-push-action@v6.10.0
       with:
         platforms: linux/arm64/v8
         push: true
