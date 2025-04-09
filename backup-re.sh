@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set the path to the folder you want to check
-folder_path="/data/bitwarden_rs-local-backup/backups"
+folder_path="/data"
 
 # get the most recently modified file in the folder
 # rclone lsl Nextcloud:/Bitwarden --max-age 12h
