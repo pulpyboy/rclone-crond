@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set the path to the folder you want to check
-folder_path="/data"
+folder_path="/data/Ark-Office"
 
 # get the most recently modified file in the folder
 # rclone lsl Nextcloud:/Bitwarden --max-age 12h
