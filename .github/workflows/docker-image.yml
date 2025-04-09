@@ -1,6 +1,7 @@
 name: Docker Image CI
 
 on:
+  workflow_dispatch:  # 👈 Enables manual trigger in GitHub UI
   push:
     branches: [ main ]
     paths-ignore:
