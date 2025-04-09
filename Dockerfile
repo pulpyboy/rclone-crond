@@ -20,7 +20,7 @@ COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh && \
     chmod +x /backup.sh
 
-RUN echo "0 */12 * * * /backup.sh" > /etc/crontabs/root
+RUN echo "0 0 * * * /backup.sh" > /etc/crontabs/root
 
 ENTRYPOINT ["/entrypoint.sh"]
 
