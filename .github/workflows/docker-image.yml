@@ -51,7 +51,7 @@ jobs:
 
     # AMD64 build
     - name: Build and push AMD64
-      uses: docker/build-push-action@v6.14.0
+      uses: docker/build-push-action@v6.15.0
       with:
         platforms: linux/amd64
         push: true
