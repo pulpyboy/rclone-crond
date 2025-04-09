@@ -49,17 +49,10 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
     #  if: steps.baseupdatecheck.outputs.needs-updating == 'true'
 
-    - name: Build and push
+    # AMD64 build
+    - name: Build and push AMD64
       uses: docker/build-push-action@v6.14.0
       with:
-        platforms: linux/arm/v7
+        platforms: linux/amd64
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/rclone-crond:armv7
-    #  if: steps.baseupdatecheck.outputs.needs-updating == 'true'
-
-    - name: Build and push
-      uses: docker/build-push-action@v6.14.0
-      with:
-        platforms: linux/arm64/v8
-        push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/rclone-crond:armv8
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/rclone-crond:latest
